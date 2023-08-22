@@ -23,6 +23,8 @@ class Register extends Component {
   };
 
   onSubmitRegister = () => {
+    const loader = document.getElementById('loader');
+    loader.style.display = 'block';
     fetch('https://smart-brain-api-4igm.onrender.com/register', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
@@ -37,6 +39,8 @@ class Register extends Component {
         if (user.id) {
           this.props.loadUser(user);
           this.props.onRouteChange('home');
+        } else {
+          loader.style.display = 'none';
         }
       });
   };
@@ -72,7 +76,7 @@ class Register extends Component {
                   onChange={this.onEmailChange}
                 />
               </div>
-              <div className="mv3">
+              <div className="mt3 mb1">
                 <label className="db fw6 lh-copy f6" htmlFor="password">
                   Password
                 </label>
@@ -85,13 +89,14 @@ class Register extends Component {
                 />
               </div>
             </fieldset>
-            <div className="">
+            <div className="mt3 flex justify-center">
               <input
                 className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
                 type="submit"
                 value="Register"
                 onClick={this.onSubmitRegister}
               />
+              <div id="loader"></div>
             </div>
           </div>
         </main>
