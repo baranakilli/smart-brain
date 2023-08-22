@@ -44,7 +44,7 @@ class Login extends Component {
       <article className="br3 ba b--black-10 mb4 mt6 w-100 w-50-m w-25-l mw6 shadow-5 center">
         <main className="pa4 black-80">
           <div className="measure">
-            <fieldset id="sign_up" className="ba b--transparent ph0 mh0 pb0">
+            <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
               <legend className="f2 fw6 ph0 mh0">Log In</legend>
               <div className="mt3">
                 <label className="db fw6 lh-copy f6" htmlFor="email-address">
@@ -58,7 +58,7 @@ class Login extends Component {
                   onChange={this.onEmailChange}
                 />
               </div>
-              <div className="mt3 mb1">
+              <div className="mv3">
                 <label className="db fw6 lh-copy f6" htmlFor="password">
                   Password
                 </label>
@@ -71,7 +71,7 @@ class Login extends Component {
                 />
               </div>
             </fieldset>
-            <div className="mt3 flex justify-center">
+            <div className="flex justify-center">
               <input
                 className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
                 type="submit"

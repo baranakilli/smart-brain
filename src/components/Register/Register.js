@@ -76,7 +76,7 @@ class Register extends Component {
                   onChange={this.onEmailChange}
                 />
               </div>
-              <div className="mt3 mb1">
+              <div className="mv3">
                 <label className="db fw6 lh-copy f6" htmlFor="password">
                   Password
                 </label>
@@ -89,7 +89,7 @@ class Register extends Component {
                 />
               </div>
             </fieldset>
-            <div className="mt3 flex justify-center">
+            <div className="flex justify-center">
               <input
                 className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
                 type="submit"
