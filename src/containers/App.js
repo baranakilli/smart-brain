@@ -65,34 +65,38 @@ class App extends Component {
     this.setState({ input: event.target.value });
   };
 
-  onPictureSubmit = (imageUrl) => {
-    this.setState({ imageUrl: this.state.input });
-    fetch('https://smart-brain-api-4igm.onrender.com/imageurl', {
-      method: 'post',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        input: this.state.input,
-      }),
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        if (result.outputs[0].data.regions) {
-          fetch('https://smart-brain-api-4igm.onrender.com/image', {
-            method: 'put',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              id: this.state.user.id,
-            }),
-          })
-            .then((response) => response.json())
-            .then((count) => {
-              this.setState(Object.assign(this.state.user, { entries: count }));
-            })
-            .catch(console.log);
-        }
-        this.displayFaceBox(this.calculateFaceLocation(result));
+  onPictureSubmit = () => {
+    if(this.state.input !== this.state.imageUrl) {
+      this.setState({ imageUrl: this.state.input });
+      fetch('https://smart-brain-api-4igm.onrender.com/imageurl', {
+        method: 'post',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          input: this.state.input,
+        }),
       })
-      .catch(console.log);
+        .then((response) => response.json())
+        .then((result) => {
+          if (result.outputs[0].data.regions) {
+            fetch('https://smart-brain-api-4igm.onrender.com/image', {
+              method: 'put',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                id: this.state.user.id,
+              }),
+            })
+              .then((response) => response.json())
+              .then((count) => {
+                this.setState(
+                  Object.assign(this.state.user, { entries: count })
+                );
+              })
+              .catch(console.log);
+          }
+          this.displayFaceBox(this.calculateFaceLocation(result));
+        })
+        .catch(console.log);
+    }
   };
 
   onRouteChange = (route) => {

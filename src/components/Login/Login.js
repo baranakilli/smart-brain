@@ -36,7 +36,11 @@ class Login extends Component {
         } else {
           loader.style.display = 'none';
         }
-      })
+      });
+  };
+
+  onKeyPressed = (keyInfo) => {
+    if (keyInfo.keyCode === 13) this.onSubmitLogIn();
   };
 
   render() {
@@ -56,6 +60,7 @@ class Login extends Component {
                   name="email-address"
                   id="email-address"
                   onChange={this.onEmailChange}
+                  onKeyDown={this.onKeyPressed}
                 />
               </div>
               <div className="mv3">
@@ -68,6 +73,7 @@ class Login extends Component {
                   name="password"
                   id="password"
                   onChange={this.onPasswordChange}
+                  onKeyDown={this.onKeyPressed}
                 />
               </div>
             </fieldset>

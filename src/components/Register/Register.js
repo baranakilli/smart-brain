@@ -45,6 +45,10 @@ class Register extends Component {
       });
   };
 
+  onKeyPressed = (keyInfo) => {
+    if (keyInfo.keyCode === 13) this.onSubmitRegister();
+  };
+
   render() {
     return (
       <article className="br3 ba b--black-10 mb4 mt6 w-100 w-50-m w-25-l mw6 shadow-5 center">
@@ -62,6 +66,7 @@ class Register extends Component {
                   name="name"
                   id="name"
                   onChange={this.onNameChange}
+                  onKeyDown={this.onKeyPressed}
                 />
               </div>
               <div className="mt3">
@@ -74,6 +79,7 @@ class Register extends Component {
                   name="email-address"
                   id="email-address"
                   onChange={this.onEmailChange}
+                  onKeyDown={this.onKeyPressed}
                 />
               </div>
               <div className="mv3">
@@ -86,6 +92,7 @@ class Register extends Component {
                   name="password"
                   id="password"
                   onChange={this.onPasswordChange}
+                  onKeyDown={this.onKeyPressed}
                 />
               </div>
             </fieldset>
