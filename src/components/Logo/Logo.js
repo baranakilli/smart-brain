@@ -17,13 +17,22 @@ const Options = {
 const Logo = () => {
   return (
     <div className="ma4">
-      <Tilt className='Tilt br2 shadow-2' options={Options} style={{ height: 150, width: 150 }}>
-      <div>
-        <img src={face} alt="logo" style={{height: '120px'}}/>
-      </div>
+      <Tilt
+        className="Tilt br2 shadow-2"
+        options={Options}
+        style={{ height: 150, width: 150 }}
+      >
+        <div>
+          <img
+            src={face}
+            alt="logo"
+            style={{ height: '120px' }}
+            onDragStart={(event) => event.preventDefault()}
+          />
+        </div>
       </Tilt>
     </div>
-  )
+  );
 }
 
 export default Logo;

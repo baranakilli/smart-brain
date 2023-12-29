@@ -16,3 +16,7 @@ code {
 button{
   cursor: pointer;
 }
+
+.hover-input:focus {
+  background-color: black !important;
+}

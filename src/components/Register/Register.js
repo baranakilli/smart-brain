@@ -35,10 +35,10 @@ class Register extends Component {
       }),
     })
       .then((response) => response.json())
-      .then((user) => {
-        if (user.id) {
-          this.props.loadUser(user);
-          this.props.onRouteChange('home');
+      .then((data) => {
+        if (data.userId && data.success) {
+          this.props.saveAuthTokenInSession(data.token);
+          this.props.getProfile(data.userId, data.token);
         } else {
           loader.style.display = 'none';
         }
@@ -61,7 +61,7 @@ class Register extends Component {
                   Name
                 </label>
                 <input
-                  className="pa2 input-reset ba b--black bg-transparent hover-bg-black hover-white w-100"
+                  className="pa2 input-reset ba b--black bg-transparent hover-bg-black hover-white w-100 hover-input"
                   type="text"
                   name="name"
                   id="name"
@@ -74,7 +74,7 @@ class Register extends Component {
                   Email
                 </label>
                 <input
-                  className="pa2 input-reset ba b--black bg-transparent hover-bg-black hover-white w-100"
+                  className="pa2 input-reset ba b--black bg-transparent hover-bg-black hover-white w-100 hover-input"
                   type="email"
                   name="email-address"
                   id="email-address"
@@ -87,7 +87,7 @@ class Register extends Component {
                   Password
                 </label>
                 <input
-                  className="b pa2 input-reset ba b--black bg-transparent hover-bg-black hover-white w-100"
+                  className="b pa2 input-reset ba b--black bg-transparent hover-bg-black hover-white w-100 hover-input"
                   type="password"
                   name="password"
                   id="password"

@@ -29,10 +29,10 @@ class Login extends Component {
       }),
     })
       .then((response) => response.json())
-      .then((user) => {
-        if (user.id) {
-          this.props.loadUser(user);
-          this.props.onRouteChange('home');
+      .then((data) => {
+        if (data.userId && data.success) {
+          this.props.saveAuthTokenInSession(data.token)
+          this.props.getProfile(data.userId, data.token);
         } else {
           loader.style.display = 'none';
         }
@@ -43,52 +43,69 @@ class Login extends Component {
     if (keyInfo.keyCode === 13) this.onSubmitLogIn();
   };
 
+  onSkipLogin = () => {
+    this.setState({ logInEmail: 'test@gmail.com' });
+    this.setState({ logInPassword: 'test' }, () => {
+      this.onSubmitLogIn();
+    });
+  }
+
   render() {
     return (
-      <article className="br3 ba b--black-10 mb4 mt6 w-100 w-50-m w-25-l mw6 shadow-5 center">
-        <main className="pa4 black-80">
-          <div className="measure">
-            <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-              <legend className="f2 fw6 ph0 mh0">Log In</legend>
-              <div className="mt3">
-                <label className="db fw6 lh-copy f6" htmlFor="email-address">
-                  Email
-                </label>
+      <div>
+        <article className="br3 ba b--black-10 mb4 mt6 w-90 w-50-m w-25-l mw6 shadow-5 center">
+          <main className="pa4 black-80">
+            <div className="measure">
+              <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
+                <legend className="f2 fw6 ph0 mh0">Log In</legend>
+                <div className="mt3">
+                  <label className="db fw6 lh-copy f6" htmlFor="email-address">
+                    Email
+                  </label>
+                  <input
+                    className="pa2 input-reset ba b--black bg-transparent hover-bg-black hover-white w-100 hover-input"
+                    type="email"
+                    name="email-address"
+                    id="email-address"
+                    onChange={this.onEmailChange}
+                    onKeyDown={this.onKeyPressed}
+                  />
+                </div>
+                <div className="mv3">
+                  <label className="db fw6 lh-copy f6" htmlFor="password">
+                    Password
+                  </label>
+                  <input
+                    className="b pa2 input-reset ba b--black bg-transparent hover-bg-black hover-white w-100 hover-input"
+                    type="password"
+                    name="password"
+                    id="password"
+                    onChange={this.onPasswordChange}
+                    onKeyDown={this.onKeyPressed}
+                  />
+                </div>
+              </fieldset>
+              <div className="flex justify-center">
                 <input
-                  className="pa2 input-reset ba b--black bg-transparent hover-bg-black hover-white w-100"
-                  type="email"
-                  name="email-address"
-                  id="email-address"
-                  onChange={this.onEmailChange}
-                  onKeyDown={this.onKeyPressed}
+                  className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
+                  type="submit"
+                  value="Log in"
+                  onClick={this.onSubmitLogIn}
                 />
+                <div id="loader"></div>
               </div>
-              <div className="mv3">
-                <label className="db fw6 lh-copy f6" htmlFor="password">
-                  Password
-                </label>
-                <input
-                  className="b pa2 input-reset ba b--black bg-transparent hover-bg-black hover-white w-100"
-                  type="password"
-                  name="password"
-                  id="password"
-                  onChange={this.onPasswordChange}
-                  onKeyDown={this.onKeyPressed}
-                />
-              </div>
-            </fieldset>
-            <div className="flex justify-center">
-              <input
-                className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
-                type="submit"
-                value="Log in"
-                onClick={this.onSubmitLogIn}
-              />
-              <div id="loader"></div>
             </div>
+          </main>
+        </article>
+        <div className="br3 ba b--black-10 shadow-5 w-80 w-40-m w-20-l mw6 center">
+          <div className='pv2'>
+            <h6>For Recruiters, Click to Skip</h6>
+            <button className="b ph2 pv1 input-reset ba b--black bg-transparent grow pointer f6 dib" onClick={this.onSkipLogin}>
+              Skip
+            </button>
           </div>
-        </main>
-      </article>
+        </div>
+      </div>
     );
   }
 }
