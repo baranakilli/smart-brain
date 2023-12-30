@@ -1,6 +1,6 @@
 {
-  "short_name": "SmartBrain",
-  "name": "SmartBrain, A Face Recognition App",
+  "short_name": "Smart Face Detector",
+  "name": "Smart Face Detector, A Face Recognition App",
   "icons": [
     {
       "src": "favicon.ico",
