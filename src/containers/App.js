@@ -115,6 +115,7 @@ class App extends Component {
   onPictureSubmit = () => {
     if (this.state.input !== this.state.imageUrl) {
       this.setState({ imageUrl: this.state.input });
+      this.setState({boxes: []})
       fetch('https://smart-brain-api-4igm.onrender.com/imageurl', {
         method: 'post',
         headers: {
@@ -127,12 +128,15 @@ class App extends Component {
       })
         .then((response) => response.json())
         .then((result) => {
-          if (result.outputs) {
+          const boxes = this.calculateFaceLocations(result);
+          if (boxes) this.setState({ boxes });
+          if (result.outputs[0].data.regions) {
             fetch('https://smart-brain-api-4igm.onrender.com/image', {
               method: 'put',
               headers: {
                 'Content-Type': 'application/json',
-                Authorization: 'Bearer ' + window.sessionStorage.getItem('token'),
+                Authorization:
+                  'Bearer ' + window.sessionStorage.getItem('token'),
               },
               body: JSON.stringify({
                 id: this.state.user.id,
@@ -146,8 +150,7 @@ class App extends Component {
               })
               .catch(console.log);
           }
-          const boxes = this.calculateFaceLocations(result);
-          if (boxes) this.setState({ boxes });
+          
         })
         .catch(console.log);
     }

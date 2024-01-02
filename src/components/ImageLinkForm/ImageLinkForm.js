@@ -1,11 +1,9 @@
 import './ImageLinkForm.css';
 
-
 const ImageLinkForm = ({ onInputChange, onPictureSubmit, onKeyPressed }) => {
-  
-onKeyPressed = (keyInfo) => {
-  if(keyInfo.keyCode === 13) onPictureSubmit();
-}
+  onKeyPressed = (keyInfo) => {
+    if (keyInfo.keyCode === 13) onPictureSubmit();
+  };
 
   return (
     <div>
@@ -18,6 +16,7 @@ onKeyPressed = (keyInfo) => {
             type="text"
             className="f4 pa2 w-70 center"
             onChange={onInputChange}
+            onFocus={(e) => e.target.select()}
             onKeyDown={onKeyPressed}
           />
           <button
