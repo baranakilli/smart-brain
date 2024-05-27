@@ -39,7 +39,7 @@ class App extends Component {
   componentDidMount() {
     const token = window.sessionStorage.getItem('token');
     if (token) {
-      fetch('https://smart-brain-api-4igm.onrender.com/login', {
+      fetch('https://smart-face-detector-api-production.up.railway.app/login', {
         method: 'post',
         headers: {
           'Content-Type': 'application/json',
@@ -60,13 +60,16 @@ class App extends Component {
 
   getProfile = (dataId, token) => {
     if (dataId && token) {
-      fetch(`https://smart-brain-api-4igm.onrender.com/profile/${dataId}`, {
-        method: 'get',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: 'Bearer ' + token,
-        },
-      })
+      fetch(
+        `https://smart-face-detector-api-production.up.railway.app/profile/${dataId}`,
+        {
+          method: 'get',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + token,
+          },
+        }
+      )
         .then((resp) => resp.json())
         .then((user) => {
           if (user && user.email) {
@@ -115,33 +118,39 @@ class App extends Component {
   onPictureSubmit = () => {
     if (this.state.input !== this.state.imageUrl) {
       this.setState({ imageUrl: this.state.input });
-      this.setState({boxes: []})
-      fetch('https://smart-brain-api-4igm.onrender.com/imageurl', {
-        method: 'post',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: 'Bearer ' + window.sessionStorage.getItem('token'),
-        },
-        body: JSON.stringify({
-          input: this.state.input,
-        }),
-      })
+      this.setState({ boxes: [] });
+      fetch(
+        'https://smart-face-detector-api-production.up.railway.app/imageurl',
+        {
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + window.sessionStorage.getItem('token'),
+          },
+          body: JSON.stringify({
+            input: this.state.input,
+          }),
+        }
+      )
         .then((response) => response.json())
         .then((result) => {
           const boxes = this.calculateFaceLocations(result);
           if (boxes) this.setState({ boxes });
           if (result.outputs[0].data.regions) {
-            fetch('https://smart-brain-api-4igm.onrender.com/image', {
-              method: 'put',
-              headers: {
-                'Content-Type': 'application/json',
-                Authorization:
-                  'Bearer ' + window.sessionStorage.getItem('token'),
-              },
-              body: JSON.stringify({
-                id: this.state.user.id,
-              }),
-            })
+            fetch(
+              'https://smart-face-detector-api-production.up.railway.app/image',
+              {
+                method: 'put',
+                headers: {
+                  'Content-Type': 'application/json',
+                  Authorization:
+                    'Bearer ' + window.sessionStorage.getItem('token'),
+                },
+                body: JSON.stringify({
+                  id: this.state.user.id,
+                }),
+              }
+            )
               .then((response) => response.json())
               .then((count) => {
                 this.setState(
@@ -150,14 +159,13 @@ class App extends Component {
               })
               .catch(console.log);
           }
-          
         })
         .catch(console.log);
     }
   };
 
   onSignout = () => {
-    fetch('https://smart-brain-api-4igm.onrender.com/signout', {
+    fetch('https://smart-face-detector-api-production.up.railway.app/signout', {
       method: 'get',
       headers: {
         'Content-Type': 'application/json',

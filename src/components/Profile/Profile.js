@@ -23,14 +23,17 @@ const Profile = ({ toggleModal, user, loadUser }) => {
   };
 
   const onProfileUpdate = (data) => {
-    fetch(`https://smart-brain-api-4igm.onrender.com/profile/${user.id}`, {
-      method: 'post',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + window.sessionStorage.getItem('token'),
-      },
-      body: JSON.stringify({ formInput: data }),
-    })
+    fetch(
+      `https://smart-face-detector-api-production.up.railway.app/profile/${user.id}`,
+      {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + window.sessionStorage.getItem('token'),
+        },
+        body: JSON.stringify({ formInput: data }),
+      }
+    )
       .then((resp) => {
         if (resp.status === 200 || resp.status === 304) {
           toggleModal();
