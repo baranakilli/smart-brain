@@ -10,8 +10,6 @@ import Modal from '../components/Modal/Modal';
 import Profile from '../components/Profile/Profile';
 import './App.css';
 
-const quarterWidthValue = window.innerWidth / 4;
-
 const initialState = {
   input: '',
   imageUrl: '',
@@ -206,7 +204,7 @@ class App extends Component {
         <ParticlesBg
           type="cobweb"
           color="#ffffff"
-          num={quarterWidthValue}
+          num={window.innerWidth / 4}
           bg={true}
         />
         <Navigation
@@ -225,7 +223,7 @@ class App extends Component {
           </Modal>
         )}
         {route === 'home' ? (
-          <div>
+          <div className="face-detector-box">
             <Rank
               name={this.state.user.name}
               entries={this.state.user.entries}

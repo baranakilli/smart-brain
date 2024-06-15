@@ -1,18 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 const Rank = ({ name, entries }) => {
   const [emoji, setEmoji] = useState('');
   useEffect(() => {
     generateEmoji(entries);
     // eslint-disable-next-line
-  }, [entries])
+  }, [entries]);
 
   const generateEmoji = (entries) => {
-    fetch(`https://b91pjqw9oj.execute-api.eu-north-1.amazonaws.com/rank?rank=${entries}`)
-      .then(resp => resp.json())
-      .then(data => setEmoji(data.input))
+    fetch(
+      `https://b91pjqw9oj.execute-api.eu-north-1.amazonaws.com/rank?rank=${entries}`
+    )
+      .then((resp) => resp.json())
+      .then((data) => setEmoji(data.input))
       .catch(console.log);
-  }
+  };
 
   return (
     <div>

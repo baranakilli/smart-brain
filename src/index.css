@@ -3,6 +3,13 @@
 body {
   margin: 0;
   font-family: 'REM', sans-serif;
+  background: #3494e6; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ec6ead,
+    #3494e6
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ec6ead, #3494e6);
 }
 
 code {

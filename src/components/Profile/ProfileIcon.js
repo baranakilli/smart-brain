@@ -17,7 +17,7 @@ const ProfileIcon = ({ onRouteChange, toggleModal }) => {
         <DropdownToggle data-toggle="dropdown" tag="span">
           <img
             src="https://icons.veryicon.com/png/o/miscellaneous/indata/user-circle-1.png"
-            className="br-100 h3 w3 dib"
+            className="br-100 h3 w3 dib pointer bg-white"
             alt="profile-icon"
             onDragStart={(event) => event.preventDefault()}
           />

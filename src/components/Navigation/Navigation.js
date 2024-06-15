@@ -15,7 +15,7 @@ const Navigation = ({ onRouteChange, isSignedIn, route, toggleModal }) => {
         {route === 'register' && (
           <p
             onClick={() => onRouteChange('login')}
-            className="f4 link dim black pointer ba pv1 ph4 mr3 mt3 br-pill"
+            className="f4 link dim black pointer bg-transparent ba pv1 ph4 mr3 mt3 br-pill"
           >
             Log in
           </p>
@@ -23,7 +23,7 @@ const Navigation = ({ onRouteChange, isSignedIn, route, toggleModal }) => {
         {route === 'login' && (
           <p
             onClick={() => onRouteChange('register')}
-            className="f4 link dim black pointer ba pv1 ph4 mr3 mt3 br-pill"
+            className="f4 link dim black pointer bg-transparent ba pv1 ph4 mr3 mt3 br-pill"
           >
             Register
           </p>
