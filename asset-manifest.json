@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/smart-face-detector/static/css/main.5887c5c7.css",
-    "main.js": "/smart-face-detector/static/js/main.e88b7828.js",
-    "static/js/787.97a96b3a.chunk.js": "/smart-face-detector/static/js/787.97a96b3a.chunk.js",
+    "main.css": "/smart-face-detector/static/css/main.e6b32395.css",
+    "main.js": "/smart-face-detector/static/js/main.31e5a8d2.js",
+    "static/js/787.c60707ed.chunk.js": "/smart-face-detector/static/js/787.c60707ed.chunk.js",
     "static/media/face.png": "/smart-face-detector/static/media/face.030aac5c6f8d25c7d418.png",
     "index.html": "/smart-face-detector/index.html",
-    "main.5887c5c7.css.map": "/smart-face-detector/static/css/main.5887c5c7.css.map",
-    "main.e88b7828.js.map": "/smart-face-detector/static/js/main.e88b7828.js.map",
-    "787.97a96b3a.chunk.js.map": "/smart-face-detector/static/js/787.97a96b3a.chunk.js.map"
+    "main.e6b32395.css.map": "/smart-face-detector/static/css/main.e6b32395.css.map",
+    "main.31e5a8d2.js.map": "/smart-face-detector/static/js/main.31e5a8d2.js.map",
+    "787.c60707ed.chunk.js.map": "/smart-face-detector/static/js/787.c60707ed.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5887c5c7.css",
-    "static/js/main.e88b7828.js"
+    "static/css/main.e6b32395.css",
+    "static/js/main.31e5a8d2.js"
   ]
 }
