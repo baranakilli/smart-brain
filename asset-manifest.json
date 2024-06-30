@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/smart-face-detector/static/css/main.efb64392.css",
-    "main.js": "/smart-face-detector/static/js/main.24c087d0.js",
+    "main.css": "/smart-face-detector/static/css/main.5887c5c7.css",
+    "main.js": "/smart-face-detector/static/js/main.e88b7828.js",
     "static/js/787.97a96b3a.chunk.js": "/smart-face-detector/static/js/787.97a96b3a.chunk.js",
     "static/media/face.png": "/smart-face-detector/static/media/face.030aac5c6f8d25c7d418.png",
     "index.html": "/smart-face-detector/index.html",
-    "main.efb64392.css.map": "/smart-face-detector/static/css/main.efb64392.css.map",
-    "main.24c087d0.js.map": "/smart-face-detector/static/js/main.24c087d0.js.map",
+    "main.5887c5c7.css.map": "/smart-face-detector/static/css/main.5887c5c7.css.map",
+    "main.e88b7828.js.map": "/smart-face-detector/static/js/main.e88b7828.js.map",
     "787.97a96b3a.chunk.js.map": "/smart-face-detector/static/js/787.97a96b3a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.efb64392.css",
-    "static/js/main.24c087d0.js"
+    "static/css/main.5887c5c7.css",
+    "static/js/main.e88b7828.js"
   ]
 }
