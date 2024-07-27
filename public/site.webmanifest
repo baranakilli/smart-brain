@@ -26,7 +26,7 @@
     }
   ],
   "start_url": "/smart-face-detector/",
-  "theme_color": "#347DFF",
+  "theme_color": "#ffffff",
   "background_color": "#ffffff",
   "display": "standalone"
 }
