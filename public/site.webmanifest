@@ -1,6 +1,6 @@
 {
   "name": "FaceDetector",
-  "short_name": "FaceD",
+  "short_name": "FaceDetector",
   "icons": [
     {
       "src": "android-chrome-192x192.png",
